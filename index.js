@@ -31,18 +31,18 @@ require('date-utils') //現在時刻の取得に必要
 
 //選択肢
 var a = 0
-var b =0
+var b = 0
 var c = 0
 var d = 0
 
 //入力側画面指定
 app.use("/controller",express.static(path.join(__dirname, 'public')))
 
-//出力側画面指定
+//コメント／スタンプ出力側画面指定
 app.get("/display", function(req, res){
   res.sendFile(__dirname + '/index_nico-Display.html');
 });
-//出力側画面指定
+//chart出力側画面指定
 app.get("/chart", function(req, res){
   res.sendFile(__dirname + '/index_chart.html');
 });
