@@ -1,0 +1,25 @@
+{
+  "name": "socket-chart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UC-SADA/socket-chart.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UC-SADA/socket-chart/issues"
+  },
+  "homepage": "https://github.com/UC-SADA/socket-chart#readme",
+  "dependencies": {
+    "date-utils": "^1.2.21",
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  }
+}

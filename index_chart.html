@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Nico-Chart</title>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+  <script type="text/javascript" src="../controller/JS/chartDraw.js"></script>
+
+</head>
+<body>
+  <canvas id="myChart_1"></canvas>
+  <script>
+    var bar_list = [[0],[0],[0],[0]];
+    var socket = io();
+    socket.on('chart', function(cnt){
+      bar_List = cnt;
+      chartDraw("myChart_1") ;
+      console.log("chartDraw");
+    });
+  </script>
+</body>
+</html>

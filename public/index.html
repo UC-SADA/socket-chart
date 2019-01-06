@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nico-Choice</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+  <script type="text/javascript" src="JS/niconico.js"></script>
+  <script type="text/javascript" src="JS/chartDraw.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body);
+      }, false);
+
+    function handleSubmit (form) {
+      const action = $(form).attr('action')
+      const params = $(form).serialize()
+      const url = `${action}?${params}`
+      $.get(url)
+        .fail(function () {
+          alert('failed to send message.')
+        });
+    }
+
+    function like (type) {
+      const url = `/like?image=${type}`
+      $.get(url)
+        .fail(function () {
+          alert('failed to like.')
+        })
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <form class="form-horizontal" style="margin: 16px" role="form" action="/like" method="get" onsubmit="handleSubmit(this); return false;">
+      <div class="form-group">
+        <label class="control-label col-sm-2">選択肢</label>
+        <div class="input-group">
+          <button class="btn btn-default" type="button" onclick="like('A')">
+            <i></i> A
+          </button>
+          　
+          <button class="btn btn-default" type="button" onclick="like('B')">
+            <i></i> B
+          </button>
+          　
+          <button class="btn btn-default" type="button" onclick="like('C')">
+            <i></i> C
+          </button>
+          　
+          <button class="btn btn-default" type="button" onclick="like('D')">
+            <i></i> D
+          </button>
+　　　
+          <button class="btn btn-default" type="button" onclick="like('Reset')">
+            <i></i> Reset
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+<!--
+  <canvas id="myChart_1"></canvas>
+  <script>
+    var socket = io();
+    socket.on('chart', function(cnt){
+      bar_List = cnt;
+      chartDraw("myChart_1")
+    });
+    socket.on('like', function(msg){
+      handleLike (msg) ;
+    });
+  </script>
+-->
+</body>
+</html>
